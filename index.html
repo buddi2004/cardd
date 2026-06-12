@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Gopinadh 💜</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#ffd6e8,#f3e8ff,#dbeafe);
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.active{
+display:flex;
+animation:fade .8s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card{
+background:rgba(255,255,255,.4);
+backdrop-filter:blur(15px);
+padding:35px;
+border-radius:30px;
+max-width:650px;
+width:90%;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h1{
+color:#7c3aed;
+margin-bottom:15px;
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+color:#444;
+}
+
+button{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:50px;
+background:#ff7eb6;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.photo{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid white;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+margin:20px 0;
+}
+
+.hidden{
+display:none;
+}
+
+.float{
+position:absolute;
+font-size:28px;
+animation:float 5s ease-in-out infinite;
+opacity:.8;
+}
+
+.f1{
+top:10%;
+left:10%;
+}
+
+.f2{
+top:15%;
+right:10%;
+}
+
+.f3{
+bottom:15%;
+left:10%;
+}
+
+.f4{
+bottom:18%;
+right:10%;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-15px);
+}
+}
+
+.envelope{
+font-size:140px;
+cursor:pointer;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+#letterCard{
+display:none;
+width:min(92%,850px);
+height:75vh;
+overflow-y:auto;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+text-align:left;
+}
+
+#letter{
+white-space:pre-wrap;
+line-height:2;
+font-size:18px;
+color:#444;
+}
+
+#scrollBtn{
+display:none;
+position:fixed;
+bottom:20px;
+right:20px;
+padding:12px 18px;
+border:none;
+border-radius:50px;
+background:#7c3aed;
+color:white;
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.photo{
+width:180px;
+height:180px;
+}
+
+h1{
+font-size:24px;
+}
+
+p{
+font-size:16px;
+}
+
+#letter{
+font-size:16px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="float f1">☁️</div>
+<div class="float f2">✨</div>
+<div class="float f3">🦋</div>
+<div class="float f4">💜</div>
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<div class="card">
+
+<img src="image1.jpeg" class="photo">
+
+<h1>Hey Bavssss 🌷</h1>
+
+<p>
+
+I wanted you to pause for a moment.
+
+<br><br>
+
+Just stay here for a minute. 💜
+
+</p>
+
+<button onclick="showPage(2)">
+Continue ✨
+</button>
+
+</div>
+
+</div><!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<h1>✨ Curious? ✨</h1>
+
+<button id="showHimBtn" onclick="showHim()">
+WANNA SEE WHO IS BEAUTIFOOOOLLLL💜
+</button>
+
+<div id="himContent" class="hidden">
+
+<img src="image2.jpeg" class="photo">
+
+<button onclick="showPage(3)">
+Next 💜
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<h1>💜 One More Thing 💜</h1>
+
+<button id="showYouBtn" onclick="showYou()">
+Look who is cute ✨
+</button>
+
+<div id="youContent" class="hidden">
+
+<img src="img3.jpeg" class="photo">
+
+<p style="margin-top:15px;">
+This person wants to tell you something...
+</p>
+
+<button onclick="showPage(4)">
+Continue 💌
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<div class="envelope" onclick="openLetter()">
+💌
+</div>
+
+<h2 style="margin-top:20px;color:#7c3aed;">
+One last thing...
+</h2>
+
+<p>
+Tap the envelope
+</p>
+
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page" id="page5">
+
+<div id="letterCard">
+
+<h1 style="text-align:center;color:#7c3aed;">
+💌 A Note For You
+</h1>
+
+<div id="letter"></div>
+
+</div>
+
+</div>
+
+<button id="scrollBtn" onclick="scrollLetter()">
+⬇ Scroll
+</button><script>
+
+function showPage(page){
+
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById("page"+page)
+.classList.add("active");
+}
+
+/* PAGE 2 */
+
+function showHim(){
+
+document.getElementById("showHimBtn")
+.style.display="none";
+
+document.getElementById("himContent")
+.classList.remove("hidden");
+}
+
+/* PAGE 3 */
+
+function showYou(){
+
+document.getElementById("showYouBtn")
+.style.display="none";
+
+document.getElementById("youContent")
+.classList.remove("hidden");
+}
+
+/* OPEN LETTER */
+
+function openLetter(){
+
+showPage(5);
+
+document.getElementById("letterCard")
+.style.display="block";
+
+document.getElementById("scrollBtn")
+.style.display="block";
+
+typeLetter();
+}
+
+/* SCROLL BUTTON */
+
+function scrollLetter(){
+
+document.getElementById("letterCard")
+.scrollBy({
+top:300,
+behavior:"smooth"
+});
+}
+
+/* TYPEWRITER */
+
+let started=false;
+
+function typeLetter(){
+
+if(started) return;
+
+started=true;
+
+let text=`Myyyyy Dear cute ,handsome bavaaa garu (leela gopinadh),
+
+i wanna tell you something that ,i know things are not easy for you right now,and 
+the financial pressure may be making every thing heavy.but please dont lose hope.
+i understand that this not that easy  to be okay but yeahh you have toooo..
+
+You are much stronger than your current situation.
+
+The difficult phase you're facing today
+does not define who you are. and thisssss is temporary.....
+ 
+i waannna let you know that  watching you go through this every day is making me sad as welll...
+There are people who care about you,
+who want to see you smile again,
+and who believe that better days are waiting ahead.
+
+and yeah i know that i may be not older then you to give advices but giving (heehee)
+Whenever things feel heavy,just be calm and give time for yourself and be peacfullll...and happyyy as well..
+its just a  hard phase soo please  dont disturb your mental health.
+and thats itttt .......
+
+Keep going.
+
+happyyy life is still waiting for youuu....... dont rush just waitttt....
+
+Brighter days will come.
+
+With care,and love 
+ 
+your Besttttttttt friendddddddddd
+Kousi ❤️`;
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("letter")
+.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,30);
+}
+}
+
+typing();
+}
+
+</script>
+
+</body>
+</html>
